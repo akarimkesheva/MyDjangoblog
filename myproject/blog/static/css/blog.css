@@ -1,46 +1,71 @@
-/* Header styling with your feminine color */
 .page-header {
-    background-color: #fce4ec; /* Soft Blush Pink */
+    background-color: #C25100;
     margin-top: 0;
     margin-bottom: 40px;
-    padding: 40px 20px 40px 40px;
-    text-align: center;
-    border-bottom: 2px solid #f8bbd0;
+    padding: 20px 20px 20px 40px;
 }
 
-/* Make the title use Lobster and look elegant */
-.page-header h1, .page-header h1 a {
-    color: #ad1457; /* Deep Rose */
-    font-family: 'Lobster', cursive;
-    font-size: 48pt;
+.page-header h1,
+.page-header h1 a,
+.page-header h1 a:visited,
+.page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
     text-decoration: none;
 }
 
-/* Post Styling */
-.post {
-    margin-bottom: 70px;
-    padding: 20px;
-    border-bottom: 1px solid #fce4ec;
-}
-
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Lobster', cursive;
-    color: #880e4f;
 }
 
 .date {
-    color: #f06292; /* Pink date text */
+    color: #828282;
+}
+
+.save {
     float: right;
 }
 
-.post h2 a {
-    color: #ad1457;
-    text-decoration: none;
+.post-form textarea,
+.post-form input {
+    width: 100%;
 }
 
-/* The Body Text */
-p {
-    font-family: 'Georgia', serif;
-    line-height: 1.8;
-    color: #4a4a4a;
+.top-menu,
+.top-menu:hover,
+.top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h2 a,
+.post h2 a:visited {
+    color: #000000;
+}
+
+.post > .date,
+.post > .actions {
+    float: right;
+}
+
+.btn-secondary,
+.btn-secondary:visited {
+    color: #C25100;
+    background: none;
+    border-color: #C25100;
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    color: #FFFFFF;
+    background-color: #C25100;
 }
