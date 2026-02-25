@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2 style="font-family: 'Lobster', cursive; color: #ff9421;">My Drafts</h2>
+    {% for post in posts %}
+        <div class="post" style="margin-bottom: 20px; border-bottom: 1px solid #eee;">
+            <p class="date" style="color: #999;">Created: {{ post.created_date|date:'d-m-Y' }}</p>
+            <h3><a href="{% url 'post_detail' pk=post.pk %}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h3>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+    {% empty %}
+        <p>No drafts here. You're all caught up!</p>
+    {% endfor %}
+{% endblock %}

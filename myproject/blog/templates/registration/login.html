@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h2 style="font-family: 'Lobster', cursive; color: #ff9421;">Log In</h2>
+
+    {% if form.errors %}
+        <p style="color: #e74c3c;">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div style="margin-bottom: 20px;">
+            {{ form.as_p }}
+        </div>
+        <input type="submit" value="Login" style="background-color: #ff9421; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+{% endblock %}

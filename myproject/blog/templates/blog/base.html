@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+        <style>
+            /* The overall page style */
+            body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
+            .page-header { background-color: #ff9421; padding: 40px 20px; text-align: center; color: white; }
+            .page-header h1 a { color: white; text-decoration: none; font-family: 'Lobster', cursive; font-size: 3rem; }
+
+            .top-menu {
+                color: white;
+                float: right;
+                font-size: 1.5rem;
+                margin-right: 20px;
+                text-decoration: none;
+                border: 2px solid white;
+                padding: 5px 15px;
+                border-radius: 10px;
+            }
+
+            /* NEW: Logout styling */
+            #logout {
+                font-family: 'Lobster', cursive;
+                border: none;
+            }
+
+            small a, small a:hover, small a:visited {
+                font-size: 12pt;
+                color: #ffffff;
+                text-decoration: underline;
+            }
+
+            .content.container { max-width: 800px; margin: 40px auto; padding: 20px; background-color: white; border-radius: 8px; }
+        </style>
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu" title="New Post">+</a>
+                    <a href="{% url 'post_draft_list' %}" class="top-menu" title="Drafts">📝</a>
+                    <p id="logout" class="top-menu">
+                        Hello {{ user.username }}
+                        <small><a href="{% url 'logout' %}">(Log out)</a></small>
+                    </p>
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu" title="Login">🔒 Log In</a>
+                {% endif %}
+                <h1><a href="{% url 'post_list' %}">Django Girls Blog</a></h1>
+            </div>
+        </header>
+
+        <main class="content container">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
